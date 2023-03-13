@@ -8,11 +8,13 @@ namespace ProjLibreriaAPI.Controllers
     [Route("[controller]")]
     public class UtenteController : Controller
     {
+        
         private readonly IConfiguration _configuration;
         public UtenteController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
+
 
         [HttpGet("GetUtentiAttivi")]
         public IEnumerable<Utente> GetUtentiAttivi() 
