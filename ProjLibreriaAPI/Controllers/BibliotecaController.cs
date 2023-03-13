@@ -51,5 +51,15 @@ namespace ProjLibreriaAPI.Controllers
             else 
                 return BadRequest();
         }
+
+        [HttpDelete("DeleteFisicaByID")]
+        public IActionResult DeleteFisicaByID(string id) 
+        {
+            DeleteFisicaByID deleteFisicaByID = new DeleteFisicaByID(_configuration);
+            if (deleteFisicaByID.DeleteFisica(id) > 0)
+                return Ok(StatusCodes.Status202Accepted);
+            else 
+                return BadRequest(StatusCodes.Status404NotFound);
+        }
     }
 }

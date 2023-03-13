@@ -18,7 +18,7 @@ namespace ProjLibreriaAPI.Service
             try
             {
                 string connectionString = _configuration.GetConnectionString("localBibliodb");
-                string queryPath = Path.Combine(Environment.CurrentDirectory, "Query", "InsertLibro.sql");
+                string queryPath = Path.Combine(Environment.CurrentDirectory, "QueryBiblioteca", "InsertLibro.sql");
                 string query = File.ReadAllText(queryPath);
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {

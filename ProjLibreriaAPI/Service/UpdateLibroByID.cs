@@ -20,7 +20,7 @@ namespace ProjLibreriaAPI.Service
             try
             {
                 string connectionString = _configuration.GetConnectionString("localBibliodb");
-                string queryPath = Path.Combine(Environment.CurrentDirectory, "Query", "UpdateLibroByID.sql");
+                string queryPath = Path.Combine(Environment.CurrentDirectory, "QueryBiblioteca", "UpdateLibroByID.sql");
                 string query = File.ReadAllText(queryPath);
 
                 GetLibroByID libroByID = new GetLibroByID(_configuration);

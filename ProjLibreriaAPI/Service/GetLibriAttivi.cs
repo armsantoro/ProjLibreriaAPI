@@ -20,7 +20,7 @@ namespace ProjLibreriaAPI.Service
             try
             {
                 string connectionString = _configuration.GetConnectionString("localBibliodb");
-                string queryPath = Path.Combine(Environment.CurrentDirectory, "Query", "GetLibriAttivi.sql");
+                string queryPath = Path.Combine(Environment.CurrentDirectory, "QueryBiblioteca", "GetLibriAttivi.sql");
                 string query = File.ReadAllText(queryPath);
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
