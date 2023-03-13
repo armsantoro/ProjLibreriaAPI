@@ -41,5 +41,15 @@ namespace ProjLibreriaAPI.Controllers
             UpdateLibroByID updateLib = new UpdateLibroByID(_configuration);
             return updateLib.UpdateByID(id, nomeLibro, catLibro, annoPub, isbn, statoLib, numCopie);
         }
+
+        [HttpPut("InsertLibro")]
+        public IActionResult InsertLibro(string nomeLibro, string catLibro, int annoPub, string isbn, string statoLib, int numCopie, bool statoRecord)
+        {
+            InsertLibro insertLibro = new InsertLibro(_configuration);
+            if (insertLibro.InsertNewLibro(nomeLibro, catLibro, annoPub, isbn, statoLib, numCopie, statoRecord) > 0)
+                return Ok(StatusCodes.Status200OK);
+            else 
+                return BadRequest();
+        }
     }
 }
