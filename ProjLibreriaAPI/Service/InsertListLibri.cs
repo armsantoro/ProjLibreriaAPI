@@ -57,5 +57,21 @@ namespace ProjLibreriaAPI.Service
             }
             return isCreated;
         }
+
+        #region Prova metodo alternativo utilizzando il metodo insertLibro gia presente
+        public int InsertListaLibriAlternative(List<LibriAttivi> libriAttivi)
+        {
+            int isCreated = 0;
+            InsertLibro insertLibro = new InsertLibro(_configuration);
+
+            foreach (LibriAttivi libro in libriAttivi)
+            {
+                isCreated = insertLibro.InsertNewLibro(libro.Nome_Libro, libro.Categoria_Libro, libro.Anno_Pubblicazione, libro.ISBN, libro.Stato_Libro, libro.Numero_Copie_Presenti, true);
+
+            }
+
+            return isCreated;
+        }
+        #endregion
     }
 }
