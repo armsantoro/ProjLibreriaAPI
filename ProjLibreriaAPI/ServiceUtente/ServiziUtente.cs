@@ -8,7 +8,7 @@ namespace ProjLibreriaAPI.ServiceUtente
     public class ServiziUtente
     {
         private readonly IConfiguration _configuration;
-        public ServiziUtente (IConfiguration configuration)
+        public ServiziUtente(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -26,7 +26,7 @@ namespace ProjLibreriaAPI.ServiceUtente
                     connection.Open();
                     using (SqlCommand cmd = new SqlCommand(query, connection))
                     {
-                        using(SqlDataReader reader = cmd.ExecuteReader())
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
@@ -63,7 +63,7 @@ namespace ProjLibreriaAPI.ServiceUtente
                     using (SqlCommand cmd = new SqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@ID", id);
-                        using(SqlDataReader reader = cmd.ExecuteReader())
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
@@ -79,7 +79,7 @@ namespace ProjLibreriaAPI.ServiceUtente
             catch (Exception ex)
             {
                 Debug.Write(ex.Message);
-             
+
             }
             return utente;
         }
@@ -221,6 +221,32 @@ namespace ProjLibreriaAPI.ServiceUtente
                 Debug.Write(ex.Message);
             }
             return isCreated;
+        }
+
+        public int DeleteUtenteByID(string id)
+        {
+            int isDeleted = 0;
+            try
+            {
+                string connectionString = _configuration.GetConnectionString("localBibliodb");
+                string queryPath = Path.Combine(Environment.CurrentDirectory, "QueryUtente", "DeleteByID.sql");
+                string query = File.ReadAllText(queryPath);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@ID", id);
+                        isDeleted = cmd.ExecuteNonQuery();
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.Write(ex.Message);
+            }
+            return isDeleted;
         }
     }
 }

@@ -65,5 +65,15 @@ namespace ProjLibreriaAPI.Controllers
             else 
                 return BadRequest();
         }
+
+        [HttpDelete("DeleteUtenteByID")]
+        public IActionResult DeleteUtenteByID(string id)
+        {
+            ServiziUtente serviziUtente = new ServiziUtente(_configuration);
+            if(serviziUtente.DeleteUtenteByID(id) > 0)
+                return Ok(StatusCodes.Status202Accepted);
+            else 
+                return BadRequest();
+        }
     }
 }
