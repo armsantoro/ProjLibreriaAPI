@@ -11,7 +11,7 @@
      VALUES
            (NEWID()
 		   ,@NewNome
-           ,(SELECT ID FROM [dbo].[Categoria_Libro] WHERE Genere = @NewCategoria)
+           ,(SELECT ID FROM [dbo].[Categoria_Immagine_Libro] WHERE Genere = @NewCategoria)
            ,@NewAnnoPubblicazione
            ,@NewISBN
            ,(SELECT ID FROM [dbo].[Stato_Libro] WHERE Stato = @NewStatoLibro)
