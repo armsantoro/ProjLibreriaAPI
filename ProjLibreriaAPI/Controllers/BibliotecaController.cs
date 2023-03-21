@@ -61,5 +61,15 @@ namespace ProjLibreriaAPI.Controllers
             else 
                 return BadRequest(StatusCodes.Status404NotFound);
         }
+
+        [HttpPut("InsertListLibri")]
+        public IActionResult InsertListLibri(List<LibriAttivi> libriAttivi)
+        {
+            InsertListLibri insertLibri = new InsertListLibri(_configuration);
+            if(insertLibri.InsertListaLibri(libriAttivi)>0)
+                return Ok(StatusCodes.Status200OK);
+            else
+                return BadRequest();
+        }
     }
 }
