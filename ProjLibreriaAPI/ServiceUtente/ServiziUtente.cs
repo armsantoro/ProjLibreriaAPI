@@ -31,10 +31,11 @@ namespace ProjLibreriaAPI.ServiceUtente
                             while (reader.Read())
                             {
                                 Utente utente = new Utente();
-                                utente.Nome_Utente = reader.GetString(0);
-                                utente.Cognome_Utente = reader.GetString(1);
-                                utente.Indirizzo = reader.GetString(2);
-                                utente.Libro = reader.GetString(3);
+                                utente.ID = reader.GetGuid(0);
+                                utente.Nome_Utente = reader.GetString(1);
+                                utente.Cognome_Utente = reader.GetString(2);
+                                utente.Indirizzo = reader.GetString(3);
+                                utente.Libro = reader.GetString(4);
                                 utenti.Add(utente);
                             }
                         }
@@ -67,10 +68,11 @@ namespace ProjLibreriaAPI.ServiceUtente
                         {
                             while (reader.Read())
                             {
-                                utente.Nome_Utente = reader.GetString(0);
-                                utente.Cognome_Utente = reader.GetString(1);
-                                utente.Indirizzo = reader.GetString(2);
-                                utente.Libro = reader.GetString(3);
+                                utente.ID = reader.GetGuid(0);
+                                utente.Nome_Utente = reader.GetString(1);
+                                utente.Cognome_Utente = reader.GetString(2);
+                                utente.Indirizzo = reader.GetString(3);
+                                utente.Libro = reader.GetString(4);
                             }
                         }
                     }
@@ -102,10 +104,11 @@ namespace ProjLibreriaAPI.ServiceUtente
                         {
                             while (reader.Read())
                             {
-                                utente.Nome_Utente = reader.GetString(0);
-                                utente.Cognome_Utente = reader.GetString(1);
-                                utente.Indirizzo = reader.GetString(2);
-                                utente.Libro = reader.GetString(3);
+                                utente.ID = reader.GetGuid(0);
+                                utente.Nome_Utente = reader.GetString(1);
+                                utente.Cognome_Utente = reader.GetString(2);
+                                utente.Indirizzo = reader.GetString(3);
+                                utente.Libro = reader.GetString(4);
                             }
                         }
                     }
